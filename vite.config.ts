@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [react()],
   root: './',
   build: {
-    outDir: 'dist/client',
+    outDir: 'dist',
     emptyOutDir: true,
     sourcemap: true
   },
@@ -27,7 +27,10 @@ export default defineConfig({
   },
   // Define environment variables for client
   define: {
-    'import.meta.env.VITE_SERVER_URL': JSON.stringify('http://localhost:3000')
+    // In production (Vercel), the API calls will be to the same domain
+    // In development, we use the proxy defined above
+    'import.meta.env.VITE_API_URL': JSON.stringify(process.env.VERCEL_URL ? 
+      `https://${process.env.VERCEL_URL}` : '')
   }
 });
 

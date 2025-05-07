@@ -3,7 +3,10 @@ import { TodoForm } from './TodoForm';
 import { TodoList } from './TodoList';
 import { Todo, CreateTodoInput, UpdateTodoInput, DeleteTodoResponse } from '../types/todo';
 
-const API_BASE_URL = '/api';
+// Use the environment variable if available, otherwise default to '/api'
+const API_BASE_URL = import.meta.env.VITE_API_URL 
+  ? `${import.meta.env.VITE_API_URL}/api`
+  : '/api';
 
 /**
  * Props interface for App component
