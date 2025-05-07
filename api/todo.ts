@@ -1,5 +1,5 @@
 import { VercelRequest, VercelResponse } from '@vercel/node';
-import { createTodo, CreateTodoInput } from './_db';
+import { createTodo, CreateTodoInput } from './_db.js';
 
 export default function handler(req: VercelRequest, res: VercelResponse) {
   // Set CORS headers
